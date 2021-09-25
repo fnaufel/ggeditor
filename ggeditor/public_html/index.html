@@ -5,12 +5,47 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name=viewport content="width=device-width,initial-scale=1">  
+        <link rel="stylesheet" href="style.css"/>
+        <title>GGEditor</title>
     </head>
+    
     <body>
-        <div>TODO write content</div>
+        
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script>
+            var params = {
+                "material_id": "penmkqch",
+                "scaleContainerClass": "applet_div",
+                "borderColor": "#0000FF",
+                "enableRightClick": true,
+                "enableLabelDrags": true,
+                "enableShiftDragZoom": true,
+                "showZoomButtons": true,
+                "errorDialogsActive": true,
+                "showMenuBar": true,
+                "showToolBar": true,
+                "showToolBarHelp": true,
+                "showAlgebraInput": true,
+                "showResetIcon": true,
+                "enableFileFeatures": true,
+                "enableUndoRedo": true,
+                "preventFocus": true,
+                "autoHeight": true,
+                "allowUpscale": true,
+                "showFullscreenButton": true
+            };
+            var applet = new GGBApplet(params, true);
+            window.addEventListener("load", function() { 
+                applet.inject('ggb-element');
+            });
+        </script>
+                
+        <div id="ggb-element"></div> 
+
     </body>
+    
 </html>
