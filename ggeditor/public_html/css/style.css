@@ -19,13 +19,11 @@ and open the template in the editor.
 }
 
 .wrapper_div {
-    background-color: lightgray;
     width: 100%;
 }
 
 .applet_div {
     width: 95%;
-    height: 950px;
     margin: auto;
 }
 
@@ -34,4 +32,8 @@ and open the template in the editor.
     margin: auto;
     padding: 1em;
     background-color: lightgray;
+}
+
+.button_div {
+    text-align: center;
 }
