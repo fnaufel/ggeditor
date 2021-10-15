@@ -1,4 +1,3 @@
-// deno-lint-ignore-file no-var no-unused-vars
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +11,10 @@ $(document).ready(function(){
 		lineNumbers : true
 	});
 
+    // // Get width of applet and make button pane and editor equally wide
+    // real_width = $('.applet_scaler').width();
+    // $('.button_div').width(real_width);
+
     // Add event handler for edit-text button
     $("#edit_text").click(handle_edit_text);
 
@@ -20,27 +23,32 @@ $(document).ready(function(){
 // Edit existing text object
 function handle_edit_text(e) {
 
-    // Clear selection list (except for first option)
-    $('#edit_text option')
-        .filter(function(index){ return index > 0; })
-        .remove();
+    // Reference to geogebra app
+    var app = applet.getAppletObject();
 
     // Get list of text objects from app
-    var app = applet.getAppletObject();
     var objs = app.getAllObjectNames('text');
 
-    et = $('#edit_text');
+    // If empty, exit
+    if (objs.length == 0) {
+        alert('No text objects defined in app.\nCreate one there first.');
+        return;
+    }
 
-    // Populate selection list with text objects from the app
-    $.each(objs, function(i, obj) {
-        var op = $('<option/>')
-            .attr('value', obj)
-            .text(obj)
-            .prop('selected', i == 1);
-
-        et.append(op);
+    // Populate options with text objects from the app
+    var obj_list = $('#obj_list');
+    obj_list.empty();
+    $.each(objs, (i, obj) => {
+        obj_list.append(
+            $('<option/>').attr('value', obj).text(obj)
+        );
     });
-    
-}
 
+    // Make list and button visible
+    $('#obj_list, #go, #cancel_pick').toggle(true);
+
+    // Disable edit text button
+    $('#edit_text').attr('disabled', 'disabled');
+
+}
 

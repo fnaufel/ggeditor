@@ -20,6 +20,7 @@ and open the template in the editor.
 
 .wrapper_div {
     width: 100%;
+    background-color: azure;    
 }
 
 .applet_div {
@@ -27,13 +28,40 @@ and open the template in the editor.
     margin: auto;
 }
 
-.editor_div {
-    width: 95%;
+.button_div {
+    display: flex;
+    width: 800px;
     margin: auto;
     padding: 1em;
-    background-color: lightgray;
+    align-items: flex-start;
 }
 
-.button_div {
-    text-align: center;
+.button_div input {
+    margin: .5em;
+    padding: .5em;
 }
+
+.button_div select {
+    margin: .5em;
+    padding: .5ex 1em .5ex 1em;
+}
+
+.editor_div {
+    width: 800px;
+    margin: auto;
+    padding: 1em;
+    display: none;
+}
+
+#obj_list {
+    display: none;
+}
+
+#go {
+    display: none;
+}
+
+#cancel_pick {
+    display: none;
+}
+
